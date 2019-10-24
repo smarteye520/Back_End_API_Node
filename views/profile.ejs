@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/header.ejs', {title: "Color Now App | Home"}); %>
+</head>
+<body class="animsition">
+    <div class="page-wrapper">
+        <%- include('partials/navbar.ejs'); %>
+
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+            <div class="page-header text-center">
+                <br />
+                <br />
+                <h1>Profile Page</h1>
+            </div>
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="well">
+                                <h3 class="text-primary">Profile Info</h3>
+                                <br />
+                                <br />
+                                <div class="form-group">
+                                    <label>Name</label><br />
+                                    <input class="au-input au-input--full" type="text" disabled value="<%= data.name %>" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label><br />
+                                    <input class="au-input au-input--full" type="text" disabled value="<%= data.email %>" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Username</label><br />
+                                    <input class="au-input au-input--full" type="text" disabled value="<%= data.username %>" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="well">
+                                <form action="/change-password" method="POST">
+                                    <h3 class="text-primary">Change Password</h3>
+                                    <br />
+                                    <br />
+                                    <div class="form-group">
+                                        <label>Current password</label><br />
+                                        <input class="au-input au-input--full" name="oldpassword" required type="password" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>New password</label><br />
+                                        <input class="au-input au-input--full" name="newpassword" required type="password" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Confirm password</label><br />
+                                        <input class="au-input au-input--full" name="confirmpassword" required type="password" value="" />
+                                    </div>
+                                    <br />
+                                    <button class="btn btn-info" type="submit">Send</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include('partials/pre_footer.ejs'); %>
+    </body>
+</html>

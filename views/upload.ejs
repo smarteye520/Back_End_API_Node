@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/header.ejs', {title: "Color Now App | Home"}); %>
+</head>
+<body class="animsition">
+<div class="page-wrapper">
+    <%- include('partials/navbar.ejs'); %>
+
+    <!-- PAGE CONTAINER-->
+    <div class="page-container">
+        <div class="page-header text-center">
+            <br />
+            <br />
+            <h1>Uploads</h1>
+            <br />
+            <p>Upload only .svg files</p>
+        </div>
+        <!-- MAIN CONTENT-->
+        <div class="main-content">
+            <div class="section__content section__content--p30">
+                <div class="container-fluid">
+                    <div class="col-md-12 col-xs-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong>Upload</strong> Form
+                            </div>
+                            <div class="card-body card-block">
+                                <form ref='uploadForm' id='uploadForm' action='/upload' method='post' encType="multipart/form-data">
+                                    <div class="row form-group">
+                                        <div class="col col-md-6 col-xs-12">
+                                            <label for="file-input" class="col-12 form-control-label">Categories</label>
+                                            <div class="col-12">
+                                                <% data.forEach(function(category){ %>
+                                                    <label class="container-inp"><%= category.name %>
+                                                      <input type="checkbox" value="<%= category.id %>" name="cats">
+                                                      <span class="checkmark"></span>
+                                                    </label>
+                                                <% }); %>
+                                            </div>
+                                        </div>
+                                        <div class="col col-md-6 col-xs-12">
+                                            <label for="file-input" class="col-12 form-control-label">File input</label>
+                                            <input type="file" name="image" class="col-12 form-control" required />
+                                        </div>
+                                        <div class="col-12">
+                                            <div style="margin-top: 20px; border-top: 1px solid #d1d1d1; padding-top: 20px">
+                                                <button class="btn btn-info pull-right right" type="submit">Upload</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END MAIN CONTENT-->
+
+    </div>
+    <!-- END PAGE CONTAINER-->
+</div>
+<%- include('partials/pre_footer.ejs'); %>
+</body>
+</html>

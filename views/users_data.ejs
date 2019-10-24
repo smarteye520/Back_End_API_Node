@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('partials/header.ejs', {title: "Color Now App | Home"}); %>
+    </head>
+<style>
+svg{
+    width: 100%;
+}
+</style>
+    <body class="animsition">
+        <div class="page-wrapper">
+            <%- include('partials/navbar.ejs'); %>
+            <!-- PAGE CONTAINER-->
+            <div class="page-container">
+                <!-- MAIN CONTENT-->
+                <div class="main-content">
+                    <div class="section__content section__content--p30">
+                        <div class="container-fluid">
+                            <h2><%=name%></h2><br>
+                            <div class="row">
+                                <% data.forEach(function(imageName){ %>
+                                    <div class="col-md-3 col-xs-12">
+                                        <div class="card">
+                                            <img src="https://colornowapp.com/uploads/images/<%= imageName.imagename %>" />
+                                            <div class="card-body">
+                                                <h4 class="card-title mb-3"></h4>
+                                                <a href="/delete-userimg/<%= imageName.id %>"><button class="btn btn-danger" >Delete</button></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <% }); %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END MAIN CONTENT-->
+            </div>
+            <!-- END PAGE CONTAINER-->
+        </div>
+        <%- include('partials/pre_footer.ejs'); %>
+    </body>
+</html>
